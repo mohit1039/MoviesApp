@@ -1,0 +1,34 @@
+query GetAllMovies($genre: String) {
+  movies(filter: {
+    genre : $genre
+  }) {
+    id
+    title
+    year
+    genre
+    poster
+  }
+}
+
+
+query GetGenre {
+  genres {
+    name
+  }
+}
+
+mutation AddMovie($movie: MovieInput) {
+  addMovie(movie: $movie) {
+    id
+  }
+}
+
+mutation DeleteMovie($movieId: ID!) {
+  deleteMovie(id: $movieId) {
+    id
+    title
+    poster
+    genre
+    year
+  }
+}
